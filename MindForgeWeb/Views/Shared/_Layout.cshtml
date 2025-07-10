@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Techwix - Technology IT Solutions Consultancy HTML5 Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    @await Html.PartialAsync("_SEO")
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="~/assets/images/favicon.png">
+
+    <!-- CSS
+    ============================================ -->
+    <!-- Icon Font CSS -->
+    <link href="~/assets/css/plugins/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/assets/css/plugins/flaticon.css">
+
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="~/assets/css/plugins/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/css/plugins/swiper-bundle.min.css">
+    <link rel="stylesheet" href="~/assets/css/plugins/aos.css">
+    <link rel="stylesheet" href="~/assets/css/plugins/magnific-popup.css">
+
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="~/assets/css/style.css">
+
+
+</head>
+<body>
+    <div class="main-wrapper">
+        @await Html.PartialAsync("_Header")
+        <!-- Offcanvas Start-->
+        <div class="offcanvas offcanvas-start" id="offcanvasExample">
+            <div class="offcanvas-header">
+                <!-- Offcanvas Logo Start -->
+                <div class="offcanvas-logo">
+                    <a href="#">
+                        @* <img src="~/assets/images/logo-white.png" alt=""> *@
+                        <img src="~/assets/images/mindforge_white.png" />
+                        
+                    </a>
+                </div>
+                <!-- Offcanvas Logo End -->
+                <button type="button" class="close-btn" data-bs-dismiss="offcanvas"><i class="flaticon-close"></i></button>
+            </div>
+
+            <!-- Offcanvas Body Start -->
+            <div class="offcanvas-body">
+                <div class="offcanvas-menu">
+                    @await Html.PartialAsync("_Nav")
+                    @* <ul class="main-menu">
+                        <li class="active-menu">
+                            <a href="index.html">Home</a>
+                            <ul class="sub-menu">
+                                <li class="active"><a href="index.html">Home Main</a></li>
+                                <li><a href="index-2.html">AI Solutions</a></li>
+                                <li><a href="index-3.html">Cyber Security</a></li>
+                                <li><a href="index-4.html">IT Solutions</a></li>
+                                <li><a href="index-5.html">Software Company</a></li>
+                                <li><a href="index-6.html">IT Agency</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="about.html">Aboute Us</a>
+                        </li>
+                        <li>
+                            <a href="#">Pages</a>
+                            <ul class="sub-menu">
+                                <li><a href="team.html">Our Team</a></li>
+                                <li><a href="service.html">Service</a></li>
+                                <li><a href="choose-us.html">Why Choose Us</a></li>
+                                <li><a href="testimonial.html">Testimonial</a></li>
+                                <li><a href="pricing.html">Pricing</a></li>
+                                <li><a href="login-register.html">Login & Register</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Blog</a>
+                            <ul class="sub-menu">
+                                <li><a href="blog.html">Blog Grid</a></li>
+                                <li><a href="blog-standard.html">Blog List</a></li>
+                                <li><a href="blog-details.html">Blog Single</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul> *@
+                </div>
+            </div>
+            <!-- Offcanvas Body End -->
+        </div>
+        <!-- Offcanvas End -->
+        <div class="container-fluid px-0">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+        @await Html.PartialAsync("_Footer")
+
+    </div>
+
+    <!-- JS
+    ============================================ -->
+    <script src="~/assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="~/assets/js/vendor/modernizr-3.11.2.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="~/assets/js/plugins/popper.min.js"></script>
+    <script src="~/assets/js/plugins/bootstrap.min.js"></script>
+
+    <!-- Plugins JS -->
+    <script src="~/assets/js/plugins/swiper-bundle.min.js"></script>
+    <script src="~/assets/js/plugins/aos.js"></script>
+    <script src="~/assets/js/plugins/waypoints.min.js"></script>
+    <script src="~/assets/js/plugins/back-to-top.js"></script>
+    <script src="~/assets/js/plugins/jquery.counterup.min.js"></script>
+    <script src="~/assets/js/plugins/appear.min.js"></script>
+    <script src="~/assets/js/plugins/jquery.magnific-popup.min.js"></script>
+
+
+    <!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
+    <!-- Main JS -->
+    <script src="~/assets/js/main.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
