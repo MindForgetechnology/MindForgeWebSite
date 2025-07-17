@@ -1,0 +1,475 @@
+﻿@model MindForgeWeb.Models.BookDemodto
+@{
+    ViewData["Title"] = "HRMS";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-info">@ViewBag.Message</div>
+}
+
+<html>
+<body data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="0">
+
+    <div class="main-wrapper">
+
+
+
+
+        <!-- Page Banner Start -->
+        <div class="section page-banner-section" style="background-image: url('@Url.Content("~/assets/images/bg/page-banner.jpg")');">
+
+
+            <div class="shape-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="944px" height="894px">
+                    <defs>
+                        <linearGradient id="PSgrad_0" x1="88.295%" x2="0%" y1="0%" y2="46.947%">
+                            <stop offset="0%" stop-color="rgb(67,186,255)" stop-opacity="1"></stop>
+                            <stop offset="100%" stop-color="rgb(113,65,177)" stop-opacity="1"></stop>
+                        </linearGradient>
+
+                    </defs>
+                    <path fill-rule="evenodd" fill="rgb(43, 142, 254)" d="M39.612,410.76 L467.344,29.824 C516.51,-13.476 590.638,-9.93 633.938,39.613 L914.192,317.344 C957.492,366.50 953.109,440.637 904.402,483.938 L476.671,864.191 C427.964,907.492 353.376,903.109 310.76,854.402 L29.823,576.670 C-13.477,527.963 -9.94,453.376 39.612,410.76 Z"></path>
+                    <path fill="url(#PSgrad_0)" d="M39.612,410.76 L467.344,29.824 C516.51,-13.476 590.638,-9.93 633.938,39.613 L914.192,317.344 C957.492,366.50 953.109,440.637 904.402,483.938 L476.671,864.191 C427.964,907.492 353.376,903.109 310.76,854.402 L29.823,576.670 C-13.477,527.963 -9.94,453.376 39.612,410.76 Z"></path>
+                </svg>
+            </div>
+            <div class="shape-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="726.5px" height="726.5px">
+                    <path fill-rule="evenodd" stroke="rgb(255, 255, 255)" stroke-width="1px" stroke-linecap="butt" stroke-linejoin="miter" opacity="0.302" fill="none" d="M28.14,285.269 L325.37,21.217 C358.860,-8.851 410.655,-5.808 440.723,28.14 L704.777,325.36 C734.846,358.859 731.802,410.654 697.979,440.722 L400.955,704.776 C367.132,734.844 315.338,731.802 285.269,697.978 L21.216,400.954 C-8.852,367.132 -5.808,315.337 28.14,285.269 Z"></path>
+                </svg>
+            </div>
+            <div class="shape-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="515px" height="515px">
+                    <defs>
+                        <linearGradient id="PSgrad_0" x1="0%" x2="89.879%" y1="0%" y2="43.837%">
+                            <stop offset="0%" stop-color="rgb(67,186,255)" stop-opacity="1"></stop>
+                            <stop offset="100%" stop-color="rgb(113,65,177)" stop-opacity="1"></stop>
+                        </linearGradient>
+
+                    </defs>
+                    <path fill-rule="evenodd" fill="rgb(43, 142, 254)" d="M19.529,202.280 L230.531,14.698 C254.559,-6.661 291.353,-4.498 312.714,19.528 L500.295,230.531 C521.656,254.558 519.493,291.353 495.466,312.713 L284.463,500.295 C260.436,521.655 223.641,519.492 202.281,495.465 L14.699,284.462 C-6.660,260.435 -4.498,223.640 19.529,202.280 Z"></path>
+                    <path fill="url(#PSgrad_0)" d="M19.529,202.280 L230.531,14.698 C254.559,-6.661 291.353,-4.498 312.714,19.528 L500.295,230.531 C521.656,254.558 519.493,291.353 495.466,312.713 L284.463,500.295 C260.436,521.655 223.641,519.492 202.281,495.465 L14.699,284.462 C-6.660,260.435 -4.498,223.640 19.529,202.280 Z"></path>
+                </svg>
+            </div>
+            <div class="shape-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="972.5px" height="970.5px">
+                    <path fill-rule="evenodd" stroke="rgb(255, 255, 255)" stroke-width="1px" stroke-linecap="butt" stroke-linejoin="miter" fill="none" d="M38.245,381.102 L435.258,28.158 C480.467,-12.32 549.697,-7.964 589.888,37.244 L942.832,434.257 C983.23,479.466 978.955,548.697 933.746,588.888 L536.733,941.832 C491.524,982.23 422.293,977.955 382.103,932.745 L29.158,535.732 C-11.32,490.523 -6.963,421.293 38.245,381.102 Z"></path>
+                </svg>
+            </div>
+            <div class="container">
+                <div class="page-banner-wrap">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <!-- Page Banner Content Start -->
+                            <div class="page-banner text-center">
+                                <h2 class="title">Human Resource Management System</h2>
+                                <ul class="breadcrumb justify-content-center">
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Human Resource Management System</li>
+                                </ul>
+                            </div>
+                            <!-- Page Banner Content End -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Page Banner End -->
+        <!-- Choose Us Start -->
+        <div class="section techwix-choose-us-section techwix-choose-us-section-04 section-padding">
+            <div class="container">
+                <!-- Choose Us Wrap Start -->
+                <div class="choose-us-wrap">
+                    <div class="choose-us-content-wrap">
+                        <div class="row">
+                            <div class="col-xl-3 col-lg-4 col-md-6">
+                                <!-- Choose Us Item Start -->
+                                <div class="choose-us-item-02">
+                                    <div class="choose-us-img">
+                                        <img src="~/assets/images/ser-icon9.png" alt="">
+                                    </div>
+                                    <div class="choose-us-content">
+                                        <h3 class="title"><a href="#">Employee Management</a></h3>
+                                        <p>Centralized control over employee profiles, onboarding, roles, departments, designations, and employment history.</p>
+                                    </div>
+                                </div>
+                                <!-- Choose Us Item End -->
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-6">
+                                <!-- Choose Us Item Start -->
+                                <div class="choose-us-item-02">
+                                    <div class="choose-us-img">
+                                        <img src="~/assets/images/counter-3.png" alt="">
+                                    </div>
+                                    <div class="choose-us-content">
+                                        <h3 class="title"><a href="#">Attendance Management</a></h3>
+                                        <p>Real-time tracking of employee attendance, shift timings, and leave records through biometric or digital inputs.</p>
+                                    </div>
+                                </div>
+                                <!-- Choose Us Item End -->
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-6">
+                                <!-- Choose Us Item Start -->
+                                <div class="choose-us-item-02">
+                                    <div class="choose-us-img">
+                                        <img src="~/assets/images/ser-icon10.png" alt="">
+                                    </div>
+                                    <div class="choose-us-content">
+                                        <h3 class="title"><a href="#">IT Security</a></h3>
+                                        <p>Accelerate innovation with world-class tech teams We’ll match you to an entire.</p>
+                                    </div>
+                                </div>
+                                <!-- Choose Us Item End -->
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-6">
+                                <!-- Choose Us Item Start -->
+                                <div class="choose-us-item-02">
+                                    <div class="choose-us-img">
+                                        <img src="~/assets/images/ser-icon12.png" alt="">
+                                    </div>
+                                    <div class="choose-us-content">
+                                        <h3 class="title"><a href="#">Payroll Management</a></h3>
+                                        <p>Automates salary generation, tax deductions, bonuses, allowances, and payslip generation with full compliance.</p>
+                                    </div>
+                                </div>
+                                <!-- Choose Us Item End -->
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-6">
+                                <!-- Choose Us Item Start -->
+                                <div class="choose-us-item-02">
+                                    <div class="choose-us-img">
+                                        <img src="~/assets/images/counter-1.png" alt="">
+                                    </div>
+                                    <div class="choose-us-content">
+                                        <h3 class="title"><a href="#"> Leave Management</a></h3>
+                                        <p>A self-service module to apply, approve, and track leaves with leave balance visibility and policy compliance.</p>
+                                    </div>
+                                </div>
+                                <!-- Choose Us Item End -->
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-6">
+                                <!-- Choose Us Item Start -->
+                                <div class="choose-us-item-02">
+                                    <div class="choose-us-img">
+                                        <img src="~/assets/images/counter-2.png" alt="">
+                                    </div>
+                                    <div class="choose-us-content">
+                                        <h3 class="title"><a href="#">Data Managment</a></h3>
+                                        <p>Accelerate innovation with world-class tech teams We’ll match you to an entire.</p>
+                                    </div>
+                                </div>
+                                <!-- Choose Us Item End -->
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-6">
+                                <!-- Choose Us Item Start -->
+                                <div class="choose-us-item-02">
+                                    <div class="choose-us-img">
+                                        <img src="~/assets/images/ser-icon21.png" alt="">
+                                    </div>
+                                    <div class="choose-us-content">
+                                        <h3 class="title"><a href="#">Performance Management</a></h3>
+                                        <p>Manage appraisals, goal setting, feedback, and performance reviews for data-driven employee evaluation.</p>
+                                    </div>
+                                </div>
+                                <!-- Choose Us Item End -->
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-6">
+                                <!-- Choose Us Item Start -->
+                                <div class="choose-us-item-02">
+                                    <div class="choose-us-img">
+                                        <img src="~/assets/images/ser-icon22.png" alt="">
+                                    </div>
+                                    <div class="choose-us-content">
+                                        <h3 class="title"><a href="#">Document Management</a></h3>
+                                        <p>Secure storage, access, and versioning of employee documents like offer letters, ID proofs, contracts, etc.</p>
+                                    </div>
+                                </div>
+                                <!-- Choose Us Item End -->
+                            </div>
+                             <div class="col-xl-3 col-lg-4 col-md-6">
+                                <!-- Choose Us Item Start -->
+                                <div class="choose-us-item-02">
+                                    <div class="choose-us-img">
+                                        <img src="~/assets/images/ser-icon22.png" alt="">
+                                    </div>
+                                    <div class="choose-us-content">
+                                        <h3 class="title"><a href="#">Expense & Reimbursement</a></h3>
+                                        <p>Track, approve, and reimburse employee expenses with receipt upload, limits, and reporting workflows.</p>
+                                    </div>
+                                </div>
+                                <!-- Choose Us Item End -->
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-6">
+                                <!-- Choose Us Item Start -->
+                                <div class="choose-us-item-02">
+                                    <div class="choose-us-img">
+                                        <img src="~/assets/images/ser-icon22.png" alt="">
+                                    </div>
+                                    <div class="choose-us-content">
+                                        <h3 class="title"><a href="#">Recruitment Management</a></h3>
+                                        <p>End-to-end hiring process from job posting to onboarding — including resume tracking, interview scheduling, and selection.</p>
+                                    </div>
+                                </div>
+                                <!-- Choose Us Item End -->
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-6">
+                                <!-- Choose Us Item Start -->
+                                <div class="choose-us-item-02">
+                                    <div class="choose-us-img">
+                                        <img src="~/assets/images/ser-icon22.png" alt="">
+                                    </div>
+                                    <div class="choose-us-content">
+                                        <h3 class="title"><a href="#">Role & Access Control</a></h3>
+                                        <p>Define access levels and permissions to ensure secure, role-based access to sensitive HR data.</p>
+                                    </div>
+                                </div>
+                                <!-- Choose Us Item End -->
+                            </div>
+
+                            <div class="col-xl-3 col-lg-4 col-md-6">
+                                <!-- Choose Us Item Start -->
+                                <div class="choose-us-item-02">
+                                    <div class="choose-us-img">
+                                        <img src="~/assets/images/ser-icon22.png" alt="">
+                                    </div>
+                                    <div class="choose-us-content">
+                                        <h3 class="title"><a href="#">Notification & Alerts</a></h3>
+                                        <p>Automated alerts for birthdays, policy changes, leave approvals, salary updates, and important HR activities.</p>
+                                    </div>
+                                </div>
+                                <!-- Choose Us Item End -->
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <!-- Choose Us Wrap End -->
+            </div>
+        </div>
+        <!-- Choose Us End -->
+        <!-- Cta Start -->
+        <div class="section techwix-cta-section-04 techwix-cta-section-06 techwix-cta-section-07">
+            <div class="container">
+                <div class="cta-wrap" style="background-image: url(assets/images/bg/cta-bg5.jpg);">
+                    <div class="row align-items-center">
+                        <div class="col-lg-7">
+                            <!-- Cta Left Start -->
+                            <div class="cta-left">
+                                <div class="section-title">
+                                    <h2 class="title white">To make requests for further information, contact us </h2>
+                                </div>
+                            </div>
+                            <!-- Cta Left End -->
+                        </div>
+                        <div class="col-lg-5">
+                            <!-- Cta Right Start -->
+                            <div class="cta-info text-center">
+                                <div class="cta-icon">
+                                    <img src="~/assets/images/cta-icon2.png" alt="">
+                                </div>
+                                <div class="cta-text">
+                                    <p>Call Us For Any inquiry</p>
+                                    <h3 class="number">+91 8765064133</h3>
+                                </div>
+                            </div>
+                            <!-- Cta Right End -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Cta End -->
+    
+        <!-- Pricing Start -->
+        <div class="section techwix-pricing-section section-padding-02">
+            <div class="container">
+                <!-- Pricing Wrap Start -->
+                <div class="pricing-wrap">
+                    <div class="section-title text-center">
+                        <h3 class="sub-title">Pricing Plans</h3>
+                        <h2 class="title">Affordable pricing for all</h2>
+                    </div>
+                    <div class="pricing-content-wrap">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6">
+                                <!-- Single Pricing Start -->
+                                <div class="single-pricing">
+                                    <div class="pricing-badge">
+                                        <span class="title">Free</span>
+                                    </div>
+                                    <div class="pricing-price">
+                                        <span class="currency">₹</span>
+                                        <h3 class="price">0<span>/Month</span></h3>
+                                    </div>
+                                    <div class="pricing-content">
+                                        <ul class="pricing-list">
+                                            <li>Community Support</li>
+                                            <li>Dedicated Tech Experts</li>
+                                            <li>Unlimited Storage</li>
+                                            <li>Custom Domains</li>
+                                        </ul>
+                                        <div class="pricing-btn">
+                                            <a class="btn" href="#">Try It Now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Single Pricing End -->
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <!-- Single Pricing Start -->
+                                <div class="single-pricing active">
+                                    <div class="pricing-badge">
+                                        <span class="title">Starter</span>
+                                    </div>
+                                    <div class="pricing-price">
+                                        <span class="currency">₹</span>
+                                        <h3 class="price">399<span>/Month</span></h3>
+                                    </div>
+                                    <div class="pricing-content">
+                                        <ul class="pricing-list">
+                                            <li>Community Support</li>
+                                            <li>Dedicated Tech Experts</li>
+                                            <li>Unlimited Storage</li>
+                                            <li>Custom Domains</li>
+                                        </ul>
+                                        <div class="pricing-btn">
+                                            <a class="btn" href="#">Try It Now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Single Pricing End -->
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <!-- Single Pricing Start -->
+                                <div class="single-pricing">
+                                    <div class="pricing-badge">
+                                        <span class="title">Pro</span>
+                                    </div>
+                                    <div class="pricing-price">
+                                        <span class="currency">₹</span>
+                                        <h3 class="price">499<span>/Month</span></h3>
+                                    </div>
+                                    <div class="pricing-content">
+                                        <ul class="pricing-list">
+                                            <li>Community Support</li>
+                                            <li>Dedicated Tech Experts</li>
+                                            <li>Unlimited Storage</li>
+                                            <li>Custom Domains</li>
+                                        </ul>
+                                        <div class="pricing-btn">
+                                            <a class="btn" href="#">Try It Now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Single Pricing End -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pricing Wrap End -->
+            </div>
+        </div>
+        <!-- Pricing End -->
+
+
+
+
+    </div>
+
+
+    <!-- Contact Start -->
+    <div class="section techwix-contact-section techwix-contact-section-02 techwix-contact-section-03 section-padding-02" style="padding-bottom: 113px;">
+        <div class="container">
+            <!-- Contact Wrap Start -->
+            <div class="contact-wrap">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <!-- Contact Form Start -->
+                        <div class="contact-form">
+                            <div class="contact-form-wrap">
+                                <div class="heading-wrap text-center">
+                                    <span class="sub-title">Book a Demo</span>
+                                    <h3 class="title">How May We Help You!</h3>
+                                </div>
+                                <form action="/Home/HRMS" method="post" id="contact-forms" enctype="multipart/form-data">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <!-- Single Form Start -->
+                                            <div class="single-form">
+                                                <input type="text" name="Name" placeholder="Name *" required>
+                                            </div>
+                                            <!-- Single Form End -->
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <!-- Single Form Start -->
+                                            <div class="single-form">
+                                                <input type="email" name="email" placeholder="Email *" required>
+                                            </div>
+                                            <!-- Single Form End -->
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <!-- Single Form Start -->
+                                            <div class="single-form">
+                                                <input type="number" name="Phone" placeholder="Phone *" required>
+                                            </div>
+                                            <!-- Single Form End -->
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <!-- Single Form Start -->
+                                            <div class="single-form">
+                                                <input type="text" name="address" placeholder="Address *" required>
+                                            </div>
+                                            <!-- Single Form End -->
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <!-- Single Form Start -->
+                                            <div class="single-form">
+                                                <textarea name="message" placeholder="Write A Message" rows="5" required></textarea>
+                                            </div>
+                                            <!-- Single Form End -->
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <!-- Single Form Start -->
+                                            <div class="form-btn">
+                                                <button class="btn" type="submit">Send Message</button>
+                                            </div>
+                                            <!-- Single Form End -->
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- Contact Form End -->
+                    </div>
+                </div>
+            </div>
+            <!-- Contact Wrap End -->
+        </div>
+    </div>
+    <!-- Contact End -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        document.getElementById("contact-forms").addEventListener("submit", function (event) {
+            let name = document.getElementsByName("Name")[0].value;
+            let phone = document.getElementsByName("Phone")[0].value;
+            let message = document.getElementsByName("Message")[0].value;
+
+            if (name.length > 25) {
+                alert("Name cannot exceed 25 characters.");
+                event.preventDefault();
+            }
+            if (phone.length !== 10 || isNaN(phone)) {
+                alert("Phone number must be exactly 10 digits.");
+                event.preventDefault();
+            }
+            if (message.length > 100) {
+                alert("Message cannot exceed 100 characters.");
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,57 @@
+﻿@model MindForgeWeb.Models.PftMasterDto
+@{
+    ViewData["Title"] = "AddPftMaster";
+    Layout = "~/Areas/Admin/Views/Shared/_adminLayout.cshtml";
+}
+
+<div class="page-body">
+    <div class="container-fluid">
+        <div class="page-title">
+            <div class="row">
+                <div class="col-6">
+                    @*   <h4>Validation Form</h4> *@
+                </div>
+                <div class="col-6">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="/Admin/Dashboard/Index">
+                                <i class="fa-solid fa-house-laptop" style="font-size: 15px;"></i>
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item"> Add Master</li>
+                        <li class="breadcrumb-item active">Add Portfolio Master</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Container-fluid starts-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Add Portfolio Master</h4>
+                    </div>
+                    <div class="card-body">
+                        <form class="row g-3 " method="post" action="AddPftMaster" enctype="multipart/form-data">
+                            <input class="form-control" asp-for="PftId" id="" type="hidden">
+
+                            <div class="col-md-4 position-relative">
+                                <label class="form-label" for="validationTooltip01">Portfolio Master  Name</label>
+                                <input class="form-control" asp-for="PftName" id="validationTooltip01" type="text" placeholder="Enter Master  Name" required="" autocomplete="off">
+                                <span class="text-danger" asp-validation-for="PftName"></span>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary" type="submit">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Container-fluid Ends-->
+</div>
+

@@ -1,0 +1,81 @@
+﻿@model MindForgeWeb.Models.TeamDetailsDto
+@{
+    ViewData["Title"] = "AddOurTeamDetails";
+    Layout = "~/Areas/Admin/Views/Shared/_adminLayout.cshtml";
+}
+
+<div class="page-body">
+    <div class="container-fluid">
+        <div class="page-title">
+            <div class="row">
+                <div class="col-6">
+                    @*   <h4>Validation Form</h4> *@
+                </div>
+                <div class="col-6">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="/Admin/Dashboard/Index">
+                                <i class="fa-solid fa-house-laptop" style="font-size: 15px;"></i>
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item"> Add Master</li>
+                        <li class="breadcrumb-item active">Add Our Team Details</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Container-fluid starts-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Add Our Team Details</h4>
+                    </div>
+                    <div class="card-body">
+                        <form class="row g-3 " method="post" action="AddOurTeamDetails" enctype="multipart/form-data">
+                            <input class="form-control" asp-for="TeamsId" id="" type="hidden">
+                            <input class="form-control" asp-for="Filename" id="" type="hidden">
+
+                            <div class="col-md-4 position-relative">
+                                <label class="form-label" for="validationTooltip01">Member Name</label>
+                                <input class="form-control" asp-for="Name" id="validationTooltip01" type="text" placeholder="Enter Member Name" required="" autocomplete="off">
+                                <span class="text-danger" asp-validation-for="Name"></span>
+                            </div>
+                            <div class="col-md-4 position-relative">
+                                <label class="form-label" for="validationTooltip01">Designation</label>
+                       <input class="form-control" asp-for="Designation" id="validationTooltip01" type="text" required="" autocomplete="off" placeholder="Enter Designation">
+                                <span class="text-danger" asp-validation-for="Designation"></span>
+                            </div>
+                            <div class="col-md-4 position-relative">
+                                <label class="form-label" for="validationTooltipUsername">Member Img</label>
+                                <input class="form-control" asp-for="FilePath" id="validationTooltip03" type="file" autocomplete="off" accept="jpeg,png,jpg">
+                                <span class="text-danger" asp-validation-for="FilePath"></span>
+
+                                @if (Model != null && !string.IsNullOrEmpty(Model.Filename))
+                                {
+                                    <div class="mt-2">
+                                        <img src="~/uploads/@Model.Filename" alt="Category Icon" class="img-fluid" style="    width: 66px; height: 69px;" />
+                                    </div>
+                                }
+                            </div>
+                        
+
+
+
+                            <div class="col-12">
+                                <button class="btn btn-primary" type="submit">Submit</button>
+                            </div>
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Container-fluid Ends-->
+</div>
+

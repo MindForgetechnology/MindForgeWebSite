@@ -1,0 +1,77 @@
+﻿@model MindForgeWeb.Models.PftDetailsDto
+@{
+    ViewData["Title"] = "AddPftDetails";
+    Layout = "~/Areas/Admin/Views/Shared/_adminLayout.cshtml";
+}
+<div class="page-body">
+    <div class="container-fluid">
+        <div class="page-title">
+            <div class="row">
+                <div class="col-6">
+                    @*   <h4>Validation Form</h4> *@
+                </div>
+                <div class="col-6">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="/Admin/Dashboard/Index">
+                                <i class="fa-solid fa-house-laptop" style="font-size: 15px;"></i>
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item"> Add Master</li>
+                        <li class="breadcrumb-item active">Add Portfolio Details</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Container-fluid starts-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Add Portfolio Details</h4>
+                    </div>
+                    <div class="card-body">
+                        <form class="row g-3 " method="post" action="AddPftDetails" enctype="multipart/form-data">
+                            <input class="form-control" asp-for="PftDId" id="" type="hidden">
+                            <input class="form-control" asp-for="Filename" id="" type="hidden">
+                            <div class="col-md-4 position-relative">
+                                <label class="form-label" for="validationTooltip01">Select Portfolio Master</label>
+                                @Html.DropDownList("PftId", (List<SelectListItem>)ViewBag.service, "--Select Master--", new { @class = "form-control", @id = "PftId", nameof = "PftId", required = "" })
+
+                                <div class="invalid-tooltip">Please Select a Portfolio Master.</div>
+                                <span class="text-danger" asp-validation-for="PftId" id=""></span>
+                            </div>
+ 
+                            <div class="col-md-4 position-relative">
+                                <label class="form-label" for="validationTooltipUsername">Portfolio Img</label>
+                                <input class="form-control" asp-for="FilePath" id="validationTooltip03" type="file" autocomplete="off" accept="jpeg,png,jpg">
+                                <span class="text-danger" asp-validation-for="FilePath"></span>
+
+                                @if (Model != null && !string.IsNullOrEmpty(Model.Filename))
+                                {
+                                    <div class="mt-2">
+                                        <img src="~/uploads/@Model.Filename" alt="Category Icon" class="img-fluid" style="    width: 66px; height: 69px;" />
+                                    </div>
+                                }
+                            </div>
+                         
+
+
+
+                            <div class="col-12">
+                                <button class="btn btn-primary" type="submit">Submit</button>
+                            </div>
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Container-fluid Ends-->
+</div>
+

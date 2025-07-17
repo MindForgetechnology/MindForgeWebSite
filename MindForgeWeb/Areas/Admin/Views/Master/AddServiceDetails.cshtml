@@ -1,0 +1,99 @@
+﻿@model MindForgeWeb.Models.ServiceDetailsDto
+
+@{
+    ViewData["Title"] = "AddServiceDetails";
+    Layout = "~/Areas/Admin/Views/Shared/_adminLayout.cshtml";
+}
+<div class="page-body">
+    <div class="container-fluid">
+        <div class="page-title">
+            <div class="row">
+                <div class="col-6">
+                    @*   <h4>Validation Form</h4> *@
+                </div>
+                <div class="col-6">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="/Admin/Dashboard/Index">
+                                <i class="fa-solid fa-house-laptop" style="font-size: 15px;"></i>
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item"> Add Master</li>
+                        <li class="breadcrumb-item active">Add Service Details</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Container-fluid starts-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Add Service Details</h4>
+                    </div>
+                    <div class="card-body">
+                        <form class="row g-3 " method="post" action="AddServiceDetails" enctype="multipart/form-data">
+                            <input class="form-control" asp-for="ServicedId" id="" type="hidden">
+                            <input class="form-control" asp-for="Filename" id="" type="hidden">
+                            <div class="col-md-3 position-relative">
+                                <label class="form-label" for="validationTooltip01">Select Service</label>
+                                @Html.DropDownList("ServiceId", (List<SelectListItem>)ViewBag.service, "--Select Service--", new { @class = "form-control", @id = "ServiceId", nameof = "ServiceId", required = "" })
+
+                                <div class="invalid-tooltip">Please Select a Service.</div>
+                                <span class="text-danger" asp-validation-for="ServiceId" id=""></span>
+                            </div>
+
+                            <div class="col-md-4 position-relative">
+                                <label class="form-label" for="validationTooltip01">Service Tittle</label>
+                                <input class="form-control" asp-for="ServiceTittle" id="validationTooltip01" type="text" placeholder="Enter Service Tittle" required="" autocomplete="off">
+                                <span class="text-danger" asp-validation-for="ServiceTittle"></span>
+                            </div>
+                           
+                            <div class="col-md-4 position-relative">
+                                <label class="form-label" for="validationTooltipUsername">Service Img</label>
+                                <input class="form-control" asp-for="FilePath" id="validationTooltip03" type="file" autocomplete="off" accept="jpeg,png,jpg">
+                                <span class="text-danger" asp-validation-for="FilePath"></span>
+
+                                @if (Model != null && !string.IsNullOrEmpty(Model.Filename))
+                                {
+                                    <div class="mt-2">
+                                        <img src="~/uploads/@Model.Filename" alt="Category Icon" class="img-fluid" style="    width: 66px; height: 69px;" />
+                                    </div>
+                                }
+                            </div>
+                            <div class="col-md-12 position-relative">
+                                <label class="form-label" for="validationTooltip01">Service Description</label> 
+                                <textarea class="form-control" asp-for="ServiceDescription" id="ServiceDescription" placeholder="Enter Description" autocomplete="off"></textarea>
+                                <span class="text-danger" asp-validation-for="ServiceDescription"></span>
+                            </div>
+
+                         
+
+                            <div class="col-12">
+                                <button class="btn btn-primary" type="submit">Submit</button>
+                            </div>
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Container-fluid Ends-->
+</div>
+ 
+<script src="https://cdn.ckeditor.com/ckeditor5/38.0.1/classic/ckeditor.js"></script>
+
+<script> 
+    document.addEventListener("DOMContentLoaded", function () { 
+        ClassicEditor
+            .create(document.querySelector('#ServiceDescription'))
+            .catch(error => {
+                console.error(error);
+            });
+    });
+</script>
