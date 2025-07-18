@@ -1,0 +1,35 @@
+﻿@{
+    var successMessage = TempData["SuccessMessage"] as string;
+    var errors = ViewData.ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToArray();
+}
+
+@if (errors.Any())
+{
+    <script>
+        $(document).ready(function () {
+        @foreach (var error in errors)
+        {
+            <text>
+                            swal({
+                                title: "Error",
+                                text: "@error",
+                                icon: "error"
+                            });
+            </text>
+        }
+        });
+    </script>
+}
+
+@if (!string.IsNullOrEmpty(successMessage))
+{
+    <script>
+        $(document).ready(function () {
+            swal({
+                title: "Success",
+                text: "@successMessage",
+                icon: "success"
+            });
+        });
+    </script>
+}

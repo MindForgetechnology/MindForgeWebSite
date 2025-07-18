@@ -1,0 +1,134 @@
+﻿@model MindForgeWeb.Models.DashboardDto
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_adminLayout.cshtml";
+    
+}
+@using Microsoft.AspNetCore.Http
+
+@{
+    var roleid = Context.Session.GetString("RoleId");
+    var userId = Context.Session.GetString("UserId");
+    var userName = Context.Session.GetString("UserName");
+
+}
+<html>
+    <head>
+        <style>
+            .pfontsi{
+            font-size: 22px;
+        }
+        </style>
+    </head>
+    <body>
+<div class="page-body">
+    <div class="container-fluid">
+        <section class="section-py-space feature-section" id="framework">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 wow pulse" style="visibility: visible; animation-name: pulse;">
+                        <div class="title text-center">
+                        
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-xxl-3 col-lg-4 col-sm-6 mb-4">
+                            <a href="/Admin/Master/AddService">
+                        <div class="feature-box common-card bg-feature">
+
+                                    <h5 class="text-center">Add Service</h5>
+                                    <p class="mb-0 f-light pfontsi"><i class="fa-brands fa-servicestack"></i></p>
+                            </div>
+                        </a>
+                    </div>
+                        <div class="col-xxl-3 col-lg-4 col-sm-6 mb-4">
+                            <a href="/Admin/Master/AddServiceDetails">
+                                <div class="feature-box common-card bg-feature">
+
+                                    <h5 class="text-center">Add Service Details </h5>
+                                    <p class="mb-0 f-light pfontsi"><i class="fa-solid fa-bolt"></i></p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-xxl-3 col-lg-4 col-sm-6 mb-4">
+                            <a href="/Admin/Master/AddBlogDetails">
+                                <div class="feature-box common-card bg-feature">
+                                    <h5 class="text-center">Add Blog Details  </h5>
+                                    <p class="mb-0 f-light pfontsi"><i class="fa-solid fa-blog"></i></p>
+                                </div>
+                            </a>
+                        </div>
+                           <div class="col-xxl-3 col-lg-4 col-sm-6 mb-4">
+                            <a href="/Admin/Master/AddPftMaster">
+                                <div class="feature-box common-card bg-feature">
+                                    <h5 class="text-center">Add Portfolio Master  </h5>
+                                    <p class="mb-0 f-light pfontsi"><i class="fa-solid fa-meteor"></i></p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-xxl-3 col-lg-4 col-sm-6 mb-4">
+                            <a href="/Admin/Master/AddPftDetails">
+                                <div class="feature-box common-card bg-feature">
+                                    <h5 class="text-center">Add Portfolio Details </h5>
+                                    <p class="mb-0 f-light pfontsi"><i class="fa-solid fa-images"></i></p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-xxl-3 col-lg-4 col-sm-6 mb-4">
+                            <a href="/Admin/Blogs/BlogsComments">
+                                <div class="feature-box common-card bg-feature">
+                                    <h5 class="text-center">Blogs Comments Details  </h5>
+                          <p class="mb-0 f-light pfontsi"><i class="fa-solid fa-comments"></i> @Model.TotalComments</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-xxl-3 col-lg-4 col-sm-6 mb-4">
+                            <a href="/Admin/Master/ServiceList">
+                                <div class="feature-box common-card bg-feature">
+                                    <h5 class="text-center">Service List  </h5>
+                                    <p class="mb-0 f-light pfontsi">@Model.TotalService</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-xxl-3 col-lg-4 col-sm-6 mb-4">
+                            <a href="/Admin/Master/ServiceDetailsList">
+                                <div class="feature-box common-card bg-feature">
+                                    <h5 class="text-center">Service Details List  </h5>
+                                    <p class="mb-0 f-light pfontsi">@Model.TotalServiceDetails</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-xxl-3 col-lg-4 col-sm-6 mb-4">
+                            <a href="/Admin/Master/BlogDetailsList">
+                                <div class="feature-box common-card bg-feature">
+                                   <h5 class="text-center">Blog List  </h5>
+                                  <p class="mb-0 f-light pfontsi">@Model.TotalBlogs</p>
+                                </div>
+                            </a>
+                        </div>
+                          <div class="col-xxl-3 col-lg-4 col-sm-6 mb-4">
+                            <a href="/Admin/Master/PftMasterList">
+                                <div class="feature-box common-card bg-feature">
+                                    <h5 class="text-center">Portfolio Master List  </h5>
+                                  <p class="mb-0 f-light pfontsi">@Model.TotalMspf</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-xxl-3 col-lg-4 col-sm-6 mb-4">
+                            <a href="/Admin/Master/PftDetailsList">
+                                <div class="feature-box common-card bg-feature">
+                                    <h5 class="text-center">Portfolio Details List </h5>
+                                    <p class="mb-0 f-light pfontsi">@Model.TotalPftDetails</p>
+                                </div>
+                            </a>
+                        </div>
+                </div>
+            </div>
+        </section>
+     
+    </div>
+ 
+</div>
+</body>
+</html>

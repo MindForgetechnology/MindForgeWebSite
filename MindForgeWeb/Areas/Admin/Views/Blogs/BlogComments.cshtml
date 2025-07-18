@@ -1,0 +1,150 @@
+﻿ @model IEnumerable<MindForgeWeb.Models.CommentBlogsDto>
+
+@{
+    ViewData["Title"] = "BlogComments";
+    Layout = "~/Areas/Admin/Views/Shared/_adminLayout.cshtml";
+}
+ 
+<html>
+<head>
+</head>
+<body>
+    <!-- Page Sidebar Ends-->
+    <div class="page-body">
+        <div class="container-fluid">
+            <div class="page-title">
+                <div class="row">
+                    <div class="col-6">
+                        @* <h4>Autofill Datatables</h4> *@
+                    </div>
+                    <div class="col-6">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="/Admin/Dashboard/Index">
+                                    <i class="fa-solid fa-house-laptop" style="font-size: 15px;"></i>
+                                </a>
+                            </li>
+                            <li class="breadcrumb-item">Add Master</li>
+                            <li class="breadcrumb-item active">Blogs Comment List</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Container-fluid starts-->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-header pb-0 card-no-border">
+                            <h4>Blog Comment List</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="dt-ext table-responsive custom-scrollbar">
+                                <table class="display" id="keytable">
+                                    <thead>
+                                        <tr>
+                                            <th>Sr. No.</th>
+                                            <th>Blog Name</th>
+                                            <th> Name</th> 
+                                            <th> Email</th> 
+                                            <th> Message</th> 
+                                            <th> Hide & Show </th> 
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @if (!Model.Any())
+                                        {
+                                            <tr>
+                                             <td colspan="7" class="text-center">No Data Found.</td>
+                                            </tr>
+                                        }
+                                        else
+                                        {
+                                            int index = 1;
+                                            foreach (var contact in Model)
+                                            {
+                                                <tr>
+                                                    <td>@index</td>
+                                                    <td>@contact.Action</td>
+                               <td>@contact.Name</td>
+                               <td>@contact.Email</td>
+                                  <td>@contact.Message</td>
+                                                    <td>
+                                                        <div class="form-check-size">
+                                                            <div class="form-check form-switch form-check-inline">
+                                                                <input class="form-check-input check-size" type="checkbox"
+                                                                       id="switch_@contact.CommentId"
+                                                                       role="switch"
+                                                                       data-userid="@contact.CommentId"
+                                                                       onchange="handleSwitchChange(this)"
+                                                                @(contact.IsDeleted? "checked" : "") />
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                     <td>  
+                             <a href="/Admin/Blogs/DeleteComment?id=@contact.CommentId" class="text-danger" onclick="return confirm('Are you sure you want to delete Permanently this data?');"><i class="fas fa-trash-alt"></i></a> 
+                                           </td>
+
+                                                </tr>
+                                                index++;
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function handleSwitchChange(checkbox) {
+            const isChecked = checkbox.checked;
+            const CommentId = checkbox.getAttribute('data-userid');
+
+            const confirmation = confirm(`Are you sure you want to ${isChecked ? 'Show' : 'Hide'} this comment?`);
+
+            if (confirmation) {
+                fetch('/Admin/Blogs/BlogCommentHideShow', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ CommentId: CommentId, checked: isChecked })
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.success) {
+                        alert(data.message); 
+                    } else {
+                        alert(data.message);  
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An unexpected error occurred.'); 
+                });
+            } else { 
+                checkbox.checked = !isChecked;
+            }
+        }
+
+    </script>
+</body>
+</html>
+
+
+
+

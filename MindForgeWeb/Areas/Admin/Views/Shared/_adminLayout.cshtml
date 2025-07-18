@@ -1,0 +1,305 @@
+﻿@{
+    Layout = null;
+}
+@using Microsoft.AspNetCore.Http
+@{
+    var roleid = Context.Session.GetString("RoleId");
+    var userId = Context.Session.GetString("UserId");
+    var userName = Context.Session.GetString("UserName");
+
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Admin Dashboard</title>
+    <meta name="author" content="pixelstrap">
+    <link rel="icon" href="~/publicadminassets/images/logo.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="~/publicadminassets/images/logo.jpg" type="image/x-icon">
+  
+
+    <!-- Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="~/~/css2?family=Montserrat:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" type="text/css" href="~/adminassets/css/font-awesome.css">
+   
+
+    <!-- Icon fonts -->
+    <link rel="stylesheet" type="text/css" href="~/adminassets/css/vendors/icofont.css">
+    <link rel="stylesheet" type="text/css" href="~/adminassets/css/vendors/themify.css">
+    <link rel="stylesheet" type="text/css" href="~/adminassets/css/vendors/flag-icon.css">
+    <link rel="stylesheet" type="text/css" href="~/adminassets/css/vendors/feather-icon.css">
+
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" type="text/css" href="~/adminassets/css/vendors/slick.css">
+    <link rel="stylesheet" type="text/css" href="~/adminassets/css/vendors/slick-theme.css">
+    <link rel="stylesheet" type="text/css" href="~/adminassets/css/vendors/scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="~/adminassets/css/vendors/animate.css">
+    <link rel="stylesheet" type="text/css" href="~/adminassets/css/vendors/echart.css">
+    <link rel="stylesheet" type="text/css" href="~/adminassets/css/vendors/date-picker.css">
+    <link rel="stylesheet" type="text/css" href="~/adminassets/css/vendors/datatables.css">
+    <link rel="stylesheet" type="text/css" href="~/adminassets/css/vendors/datatable-extension.css">
+    <!-- Plugins CSS Ends-->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="~/adminassets/css/vendors/bootstrap.css">
+
+    <!-- App CSS -->
+    <link rel="stylesheet" type="text/css" href="~/adminassets/css/style.css">
+    <link id="color" rel="stylesheet" href="~/adminassets/css/color-1.css" media="screen">
+
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" type="text/css" href="~/adminassets/css/responsive.css">
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/fontawesome.min.css"  />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+</head>
+<body>
+    <!-- loader starts-->
+    <div class="loader-wrapper">
+        <div class="loader">
+            <div class="loader4"></div>
+        </div>
+    </div>
+    <!-- loader ends-->
+    <!-- tap on top starts-->
+    <div class="tap-top"><i data-feather="chevrons-up"></i></div>
+    <!-- tap on tap ends-->
+    <!-- page-wrapper Start-->
+    <div class="page-wrapper compact-wrapper" id="pageWrapper">
+        <!-- Page Header Start-->
+        <div class="page-header">
+            <div class="header-wrapper row m-0">
+                <form class="form-inline search-full col" action="#" method="get">
+                    <div class="form-group w-100">
+                        <div class="Typeahead Typeahead--twitterUsers">
+                            <div class="u-posRelative">
+                                <input class="demo-input Typeahead-input form-control-plaintext w-100" type="text" placeholder="Search  .." name="q" title="" autofocus="">
+                                <div class="spinner-border Typeahead-spinner" role="status"><span class="sr-only">Loading... </span></div><i class="close-search" data-feather="x"></i>
+                            </div>
+                            <div class="Typeahead-menu"> </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="header-logo-wrapper col-auto p-0">
+                    <div class="logo-wrapper"> <a href="/Admin/Dashboard/Index"><img class="img-fluid for-light" src="~/assets/images/logos/logo.jpg" alt="logo-light"><img class="img-fluid for-dark" src="~/assets/images/logos/logo.jpg" alt="logo-dark"></a></div>
+                    <div class="toggle-sidebar"> <i class="status_toggle middle sidebar-toggle" data-feather="align-center"></i></div>
+                </div>
+                <div class="left-header col-xxl-5 col-xl-6 col-lg-5 col-md-4 col-sm-3 p-0">
+                    <div>
+                        <a class="toggle-sidebar" href="#"> <i class="iconly-Category icli"> </i></a>
+                        <div class="d-flex align-items-center gap-2 ">
+                            <h4 class="f-w-600">Welcome @userName</h4>@* <img class="mt-0" src="~/adminassets/images/hand.gif" alt="hand-gif"> *@
+                        </div>
+                    </div>
+                    <div class="welcome-content d-xl-block d-none"><span class="text-truncate col-12">@* Here’s what’s happening with your store today. *@ </span></div>
+                </div>
+                <div class="nav-right col-xxl-7 col-xl-6 col-md-7 col-8 pull-right right-header p-0 ms-auto">
+                    <ul class="nav-menus">
+                       
+                        <li class="profile-nav onhover-dropdown">
+                            <div class="media profile-media" >
+
+                                <img class="b-r-10" src="~/adminassets/svg/profile.png" alt="" style="height:30px;">
+                                <div class="media-body d-xxl-block d-none box-col-none">
+                                    <div class="d-flex align-items-center gap-2"> <span>@userName </span></div>
+                                   
+                                           @if (roleid == "1")
+                                          {
+                                          <p class="mb-0 font-roboto">Admin</p>
+                                          }
+                                               
+                                </div>
+                            </div>
+                            <ul class="profile-dropdown onhover-show-div">
+                                @*  <li><a href="letter-box.html"><i data-feather="mail"></i><span>Inbox</span></a></li>
+                                <li><a href="/Admin/Dashboard/Profile"><i data-feather="user"></i><span>My Profile</span></a></li>
+                               *@
+                                <a href="/Admin/Dashboard/ChangePassword">
+                                    <li>  <i data-feather="settings"></i><span>Change Password</span></li></a>
+                                <li><a class="btn btn-pill btn-outline-primary btn-sm" href="/Account/Logout?userId=@userId">Log Out</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <script class="result-template" type="text/x-handlebars-template">
+                    <div class="ProfileCard u-cf">
+                    <div class="ProfileCard-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-airplay m-0"><path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path><polygon points="12 15 17 21 7 21 12 15"></polygon></svg></div>
+                    <div class="ProfileCard-details">
+                    <div class="ProfileCard-realName">{{name}}</div>
+                    </div>
+                    </div>
+                </script>
+                <script class="empty-template" type="text/x-handlebars-template"><div class="EmptyMessage">Your search turned up 0 results. This most likely means the backend is down, yikes!</div></script>
+            </div>
+        </div>
+        <!-- Page Header Ends                              -->
+        <!-- Page Body Start-->
+        <div class="page-body-wrapper">
+            <!-- Page Sidebar Start-->
+            <div class="sidebar-wrapper" data-layout="stroke-svg">
+                <div class="logo-wrapper">
+                    <a href="/Admin/Dashboard/Index">
+                        <img class="img-fluid" src="~/assets/images/logos/logo.jpg" alt="" style="height: 52px;width: 99px;">
+                    </a>
+                    <div class="back-btn"><i class="fa fa-angle-left"> </i></div>
+                    <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="grid"> </i></div>
+                </div>
+                <div class="logo-icon-wrapper"><a href="/Admin/Dashboard/Index"><img class="img-fluid" src="~/assets/images/logos/logo.jpg" alt=""></a></div>
+                <nav class="sidebar-main">
+                    <div class="left-arrow" id="left-arrow"><i data-feather="arrow-left"></i></div>
+                    <div id="sidebar-menu">
+                        <ul class="sidebar-links" id="simple-bar">
+                            <li class="back-btn">
+                                <a href="/Admin/Dashboard/Index"><img class="img-fluid" src="~/assets/images/logos/logo.jpg" alt=""></a>
+                                <div class="mobile-back text-end"> <span>Back </span><i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
+                            </li>
+                            <li class="pin-title sidebar-main-title">
+                                <div>
+                                    <h6>Pinned</h6>
+                                </div>
+                            </li> 
+                           
+                                <li class="sidebar-main-title">
+                                    <div>
+                                        <h6 class="">Add Master</h6>
+                                    </div>
+                                </li>
+
+                                <li class="sidebar-list">
+                                    <i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="#">
+                                        <svg class="stroke-icon">
+                                            <use href="~/adminassets/svg/icon-sprite.svg#stroke-layout"></use>
+                                        </svg>
+                                        <svg class="fill-icon">
+                                            <use href="~/adminassets/svg/icon-sprite.svg#fill-layout"></use>
+                                        </svg><span class="">Add Master</span>
+                                    </a>
+                                    <ul class="sidebar-submenu">
+                                    <li><a href="/Admin/Master/AddService">Add Service</a></li>
+                                    <li><a href="/Admin/Master/AddServiceDetails">Add Service Details</a></li> 
+                                    <li><a href="/Admin/Master/AddBlogDetails">Add Blog Details</a></li>
+                                    <li><a href="/Admin/Master/AddPftMaster">Add Portfolio Master</a></li>
+                                    <li><a href="/Admin/Master/AddPftDetails">Add Portfolio Details</a></li>
+                                    <li><a href="/Admin/Master/AddOurTeamDetails">Add Our Team Details</a></li>
+                                    </ul>
+                                </li>
+                            <li class="sidebar-main-title">
+                                <div>
+                                    <h6 class="">Reports</h6>
+                                </div>
+                            </li>
+                            <li class="sidebar-list">
+                                <i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="#">
+                                    <svg class="stroke-icon">
+                                        <use href="~/adminassets/svg/icon-sprite.svg#stroke-layout"></use>
+                                    </svg>
+                                    <svg class="fill-icon">
+                                     <use href="~/adminassets/svg/icon-sprite.svg#fill-layout"></use>
+                                    </svg><span class="">  Master Reports</span>
+                                </a>
+                                <ul class="sidebar-submenu"> 
+                                    <li><a href="/Admin/Master/ServiceList"> Service List</a></li>
+                                    <li><a href="/Admin/Master/ServiceDetailsList"> Service Details List</a></li>  
+                                    <li><a href="/Admin/Master/BlogDetailsList"> Blog Details List</a></li>
+                                    <li><a href="/Admin/Master/PftMasterList">Portfolio Master List</a></li>
+                                    <li><a href="/Admin/Master/PftDetailsList"> Portfolio Details List</a></li>
+                                    <li><a href="/Admin/Master/OurTeamDetailsList"> Our Team Details List</a></li>
+                                </ul>
+                            </li>
+                            <li class="sidebar-list">
+                                <i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="/Admin/Blogs/BlogComments">
+                                    <svg class="stroke-icon">
+                                     <use href="~/adminassets/svg/icon-sprite.svg#stroke-layout"></use>
+                                    </svg>
+                                    <svg class="fill-icon">
+                                        <use href="~/adminassets/svg/icon-sprite.svg#fill-layout"></use>
+                                    </svg><span class="">  Blogs Comment Reports</span>
+                                </a> 
+                            </li>
+
+                            
+                        </ul>
+                        <div class="right-arrow" id="right-arrow"><i data-feather="arrow-right"></i></div>
+                    </div>
+                </nav>
+            </div>
+            <!-- Page Sidebar Ends-->
+            <div class="container">
+                @Html.Partial("_Notification")
+            </div>
+            @RenderBody();
+            <!-- footer start-->
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12 footer-copyright text-center">
+                            <p class="mb-0">Copyright © All Right Reserved</p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <!-- Latest jQuery -->
+    <script src="~/adminassets/js/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="~/adminassets/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <!-- Feather icon JS -->
+    <script src="~/adminassets/js/icons/feather-icon/feather.min.js"></script>
+    <script src="~/adminassets/js/icons/feather-icon/feather-icon.js"></script>
+    <!-- Scrollbar JS -->
+    <script src="~/adminassets/js/scrollbar/simplebar.js"></script>
+    <script src="~/adminassets/js/scrollbar/custom.js"></script>
+    <!-- Sidebar jQuery -->
+    <script src="~/adminassets/js/config.js"></script>
+    <!-- Plugins JS start -->
+    <script src="~/adminassets/js/sidebar-menu.js"></script>
+    <script src="~/adminassets/js/sidebar-pin.js"></script>
+    <script src="~/adminassets/js/slick/slick.min.js"></script>
+    <script src="~/adminassets/js/slick/slick.js"></script>
+    <script src="~/adminassets/js/header-slick.js"></script>
+    <!-- Calendar JS -->
+    <script src="~/adminassets/js/datepicker/date-picker/datepicker.js"></script>
+    <script src="~/adminassets/js/datepicker/date-picker/datepicker.en.js"></script>
+    <script src="~/adminassets/js/datepicker/date-picker/datepicker.custom.js"></script>
+    <!-- DataTable JS -->
+    <script src="~/adminassets/js/datatable/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/adminassets/js/datatable/datatable-extension/dataTables.buttons.min.js"></script>
+    <script src="~/adminassets/js/datatable/datatable-extension/jszip.min.js"></script>
+    <script src="~/adminassets/js/datatable/datatable-extension/buttons.colVis.min.js"></script>
+    <script src="~/adminassets/js/datatable/datatable-extension/pdfmake.min.js"></script>
+    <script src="~/adminassets/js/datatable/datatable-extension/vfs_fonts.js"></script>
+    <script src="~/adminassets/js/datatable/datatable-extension/dataTables.autoFill.min.js"></script>
+    <script src="~/adminassets/js/datatable/datatable-extension/dataTables.select.min.js"></script>
+    <script src="~/adminassets/js/datatable/datatable-extension/buttons.bootstrap5.min.js"></script>
+    <script src="~/adminassets/js/datatable/datatable-extension/buttons.html5.min.js"></script>
+    <script src="~/adminassets/js/datatable/datatable-extension/buttons.print.min.js"></script>
+    <script src="~/adminassets/js/datatable/datatable-extension/dataTables.bootstrap5.min.js"></script>
+    <script src="~/adminassets/js/datatable/datatable-extension/dataTables.responsive.min.js"></script>
+    <script src="~/adminassets/js/datatable/datatable-extension/responsive.bootstrap5.min.js"></script>
+    <script src="~/adminassets/js/datatable/datatable-extension/dataTables.keyTable.min.js"></script>
+    <script src="~/adminassets/js/datatable/datatable-extension/dataTables.colReorder.min.js"></script>
+    <script src="~/adminassets/js/datatable/datatable-extension/dataTables.fixedHeader.min.js"></script>
+    <script src="~/adminassets/js/datatable/datatable-extension/dataTables.rowReorder.min.js"></script>
+    <script src="~/adminassets/js/datatable/datatable-extension/dataTables.scroller.min.js"></script>
+    <script src="~/adminassets/js/datatable/datatable-extension/custom.js"></script>
+    <script src="~/adminassets/js/tooltip-init.js"></script>
+    <!-- Dashboard JS -->
+    <script src="~/adminassets/js/dashboard/dashboard_3.js"></script>
+    <!-- Theme JS -->
+    <script src="~/adminassets/js/script.js"></script>
+
+
+    @RenderSection("Scripts", required: false)
+    @*     <script src="~/adminassets/js/theme-customizer/customizer.js"></script> *@
+</body>
+</html>

@@ -1,0 +1,112 @@
+﻿@model IEnumerable<MindForgeWeb.Models.PftDetailsDto>
+@{
+    ViewData["Title"] = "PftDetailsList";
+    Layout = "~/Areas/Admin/Views/Shared/_adminLayout.cshtml";
+}
+
+<html>
+<head>
+    <style>
+        .service-description {
+            width: 400px;
+            min-height: 200px;
+            word-wrap: break-word;
+            white-space: normal;
+            overflow: auto;
+        }
+
+        .service-description {
+            display: block;
+            max-height: 200px;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Page Sidebar Ends-->
+    <div class="page-body">
+        <div class="container-fluid">
+            <div class="page-title">
+                <div class="row">
+                    <div class="col-6">
+                        @* <h4>Autofill Datatables</h4> *@
+                    </div>
+                    <div class="col-6">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="/Admin/Dashboard/Index">
+                                    <i class="fa-solid fa-house-laptop" style="font-size: 15px;"></i>
+                                </a>
+                            </li>
+                            <li class="breadcrumb-item">Add Master</li>
+                            <li class="breadcrumb-item active">Portfolio  Details   List</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Container-fluid starts-->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-header pb-0 card-no-border">
+                            <h4> Portfolio  Details   List</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="dt-ext table-responsive custom-scrollbar">
+                                <table class="display" id="keytable">
+                                    <thead>
+                                        <tr>
+                                            <th>Sr. No.</th>
+                                            <th>Portfolio Master Name</th>
+                                            <th> Portfolio  Img</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @if (!Model.Any())
+                                        {
+                                            <tr>
+                                                <td colspan="7" class="text-center">No Data Found.</td>
+                                            </tr>
+                                        }
+                                        else
+                                        {
+                                            int index = 1;
+                                            foreach (var contact in Model)
+                                            {
+                                                <tr>
+                                                    <td>@index</td>
+                                                    <td>@contact.Action</td> 
+                                                    <td>
+                                                        <img src="~/uploads/@contact.Filename" style="height: 74px;width: 87px;" />
+                                                    </td>
+  
+                                                    <td>
+                                                        <a href="/Admin/Master/AddPftDetails?id=@contact.PftDId" class="text-info"><i class="fas fa-pencil-alt"></i></a>
+                                                        <a href="/Admin/Master/DeletePftDetails?id=@contact.PftDId" class="text-danger" onclick="return confirm('Are you sure you want to delete this data?');"><i class="fas fa-trash-alt"></i></a>
+
+                                                    </td>
+
+                                                </tr>
+                                                index++;
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+</body>
+</html>
+
