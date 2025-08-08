@@ -538,27 +538,27 @@ textarea:-ms-input-placeholder {
 }
 
 .btn {
-  display: inline-block;
-  overflow: hidden;
-  transform: perspective(0) translateZ(0);
-  background: linear-gradient(195deg, #086ad8 0%, #42b9ff 100%);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  border-color: transparent;
-  color: #ffffff;
-  border-radius: 5px;
-  font-size: 18px;
-  font-family: "Barlow", sans-serif;
-  font-weight: 700;
-  height: 60px;
-  line-height: 56px;
-  padding: 0px 70px;
-  border: 0;
-  border-style: solid;
-  box-shadow: none;
-  transition: all 0.5s ease 0s;
-  cursor: pointer;
-  z-index: 1;
-  position: relative;
+    display: inline-block;
+    overflow: hidden;
+    transform: perspective(0) translateZ(0);
+    background: linear-gradient(195deg, #d8082e 0%, #1e2329 100%);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    border-color: transparent;
+    color: #ffffff;
+    border-radius: 5px;
+    font-size: 18px;
+    font-family: "Barlow", sans-serif;
+    font-weight: 700;
+    height: 60px;
+    line-height: 56px;
+    padding: 0px 70px;
+    border: 0;
+    border-style: solid;
+    box-shadow: none;
+    transition: all 0.5s ease 0s;
+    cursor: pointer;
+    z-index: 1;
+    position: relative;
 }
 
 .btn::before {
