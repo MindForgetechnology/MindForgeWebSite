@@ -1,7 +1,7 @@
 ﻿<ul class="main-menu">
     <li class="active-menu">
         <a asp-action="Index" asp-controller="Home">Home</a>
-        
+
     </li>
     <li>
         <a asp-action="AboutUS" asp-controller="Home">Aboute Us</a>
@@ -17,6 +17,11 @@
             <li><a href="#">AI & Automation</a></li>
             <li><a href="#">IT Consulting</a></li>
         </ul>
+    </li>
+    <li>
+        <a asp-action="AboutUS" asp-controller="Home">
+            Portfolio
+        </a>
     </li>
     <li>
         <a href="#">Product</a>
@@ -39,16 +44,18 @@
             <li><a href="#">Real Estate</a></li>
             <li><a href="#">Manufacturing</a></li>
             <li><a href="#">Finance</a></li>
-            
+
         </ul>
     </li>
     <li>
         <a href="#">Blog</a>
         @* <ul class="sub-menu">
-            <li><a href="blog.html">Blog Grid</a></li>
-            <li><a href="blog-standard.html">Blog List</a></li>
-            <li><a href="blog-details.html">Blog Single</a></li>
+        <li><a href="blog.html">Blog Grid</a></li>
+        <li><a href="blog-standard.html">Blog List</a></li>
+        <li><a href="blog-details.html">Blog Single</a></li>
         </ul> *@
     </li>
-    <li><a asp-action="ContactUs" asp-controller="Home">Contact</a></li>
+    <li>
+        <a asp-action="ContactUs" asp-controller="Home">Contact</a>
+    </li>
 </ul>

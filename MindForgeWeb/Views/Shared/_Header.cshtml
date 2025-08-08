@@ -7,9 +7,8 @@
         <div class="header-wrap">
 
             <div class="header-logo">
-                <a href="index.html">
-                    @* <img src="~/assets/images/logo.png" alt=""> *@
-                    <img src="~/assets/images/mindfogelogo.png" alt="" />
+                <a href="index.html">                  
+                    <img src="~/assets/images/logo/logo.png" alt="" />
                     </a>
                     
             </div>
@@ -21,7 +20,7 @@
             <!-- Header Meta Start -->
             <div class="header-meta">
                 <!-- Header Cart Start -->
-                <div class="header-cart dropdown">
+                @* <div class="header-cart dropdown">
                     <button class="cart-btn" data-bs-toggle="dropdown">
                         <i class="flaticon-shopping-cart"></i>
                         <span class="count">0</span>
@@ -81,10 +80,10 @@
                         </div>
                         <!-- Dropdown Cart Button End -->
                     </div>
-                    <!-- Header Dropdown Cart End -->
+                    <!-- Header Dropdown Cart End --> 
                 </div>
                 <!-- Header Cart End -->
-                <!-- Header Search Start -->
+                @* <!-- Header Search Start -->
                 <div class="header-search">
                     <a class="search-btn" href="#"><i class="flaticon-loupe"></i></a>
                     <div class="search-wrap">
@@ -100,10 +99,11 @@
                         </div>
                     </div>
                 </div>
-                <!-- Header Search End -->
+                <!-- Header Search End --> *@
 
                 <div class="header-btn d-none d-xl-block">
-                    <a class="btn" href="login-register.html">Get Started</a>
+                    <a class="btn" asp-action="ContactUs" asp-controller="Home">Get a Quote</a>
+                    
                 </div>
                 <!-- Header Toggle Start -->
                 <div class="header-toggle d-lg-none">
