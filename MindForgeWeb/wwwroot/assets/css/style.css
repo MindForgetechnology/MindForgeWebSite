@@ -5931,11 +5931,11 @@ textarea:-ms-input-placeholder {
   margin-top: 35px;
 }
 
-.techwix-skill-section-02 .skill-left .experience-wrap .experience {
-  max-width: 170px;
-  background: linear-gradient(-120deg, #43baff 0%, #7141b1 100%);
-  padding: 30px;
-}
+    .techwix-skill-section-02 .skill-left .experience-wrap .experience {
+        max-width: 170px;
+        background: linear-gradient(-120deg, #dc3545 0%, #212529 100%);
+        padding: 30px;
+    }
 
 .techwix-skill-section-02 .skill-left .experience-wrap .experience .number {
   font-size: 100px;

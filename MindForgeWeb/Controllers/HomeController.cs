@@ -138,6 +138,10 @@ namespace MindForgeWeb.Controllers
         }
 
 
+        public IActionResult Services()
+        {
+            return View();
+        }
 
 
 
